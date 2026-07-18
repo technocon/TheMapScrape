@@ -1,47 +1,32 @@
+import { MapPinned } from "lucide-react"
+import { ScraperDashboard } from "@/components/scraper-dashboard"
+
 export default function Page() {
   return (
-    <main
-      style={{
-        colorScheme: 'light dark',
-        position: 'relative',
-        display: 'flex',
-        minHeight: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'light-dark(#fff, #000)',
-        color: 'light-dark(#000, #fff)',
-      }}
-    >
-      <svg
-        aria-hidden="true"
-        style={{ width: 80, height: 80 }}
-        width={80}
-        height={80}
-        fill="none"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="currentColor"
-        strokeWidth="0.5"
-      >
-        <path
-          d="M14.2 14.2H17V6.9375C17 4.76288 15.2371 3 13.0625 3H5.8V5.8M14.2 14.2V7.79063L7.79062 14.2H14.2ZM14.2 14.2V17H6.9375C4.76288 17 3 15.2371 3 13.0625V5.8H5.8M5.8 5.8V12.2313L12.2313 5.8H5.8Z"
-          strokeLinejoin="round"
-        />
-      </svg>
-      <p
-        style={{
-          position: 'absolute',
-          left: '50%',
-          top: 'calc(50% + 56px)',
-          transform: 'translateX(-50%)',
-          whiteSpace: 'nowrap',
-          fontSize: '14px',
-          fontWeight: 500,
-          color: 'light-dark(#71717a, #a1a1aa)',
-        }}
-      >
-        Your v0 generation will show here.
-      </p>
+    <main className="flex h-screen flex-col overflow-hidden bg-background">
+      <header className="flex shrink-0 items-center gap-3 border-b border-border bg-card px-5 py-3">
+        <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+          <MapPinned className="size-5" />
+        </span>
+        <div className="min-w-0">
+          <h1 className="text-pretty text-base font-semibold leading-tight text-foreground">MapScrape</h1>
+          <p className="text-xs text-muted-foreground">Scrape Google Maps at scale with an AI agent + Scrapeless MCP</p>
+        </div>
+        <div className="ml-auto hidden items-center gap-2 sm:flex">
+          <span className="rounded-full border border-border bg-secondary px-2.5 py-1 font-mono text-xs text-muted-foreground">
+            api.scrapeless.com/mcp
+          </span>
+          <a
+            href="https://scrapeless.medium.com/how-to-scrape-google-maps-at-scale-with-ai-agent-and-scrapeless-mcp-server-9955e38ad3fb"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-md px-2.5 py-1 text-xs font-medium text-primary hover:underline"
+          >
+            Read the article
+          </a>
+        </div>
+      </header>
+      <ScraperDashboard />
     </main>
   )
 }
